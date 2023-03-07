@@ -1,0 +1,43 @@
+<div>
+  <mat-toolbar>
+    <mat-form-field style="transform: translateY(10px)">
+      <mat-label>Select 3D mesh</mat-label>
+      <mat-select [ngModel]="selectedModel$ | async" (ngModelChange)="selectedModel$.next($event)">
+        <mat-option
+          *ngFor="let model of models"
+          [value]="model"
+        >
+          {{ model.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div>
+      <button mat-button (click)="extrudeDistance$.next(0)">Reset</button>
+      {{ extrudeDistance$ | async }}
+      <mat-slider
+        min="-1000"
+        max="10000"
+        [discrete]="false"
+      >
+        <input
+          matSliderThumb
+          [ngModel]="((extrudeDistance$ | async) || 0) * 1000"
+          (ngModelChange)="extrudeDistance$.next($event / 1000)"
+        >
+      </mat-slider>
+    </div>
+  </mat-toolbar>
+
+  <div
+    *ngIf="geometry$ | async as geometryProgress"
+    style="height: 4px; background: #f5f5f5;"
+  >
+    <mat-progress-bar
+      *ngIf="!geometryProgress.complete"
+      [value]="geometryProgress.current / geometryProgress.total * 100"
+    ></mat-progress-bar>
+  </div>
+</div>
+
+<div #viewport class="viewport"></div>

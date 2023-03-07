@@ -1,0 +1,87 @@
+<mat-progress-bar
+  *ngIf="totalProgress !== 1"
+  [value]="totalProgress * 100"
+></mat-progress-bar>
+
+<ng-container *ngLet="mobileMode$ | async as mobileMode">
+  <mat-drawer-container>
+    <mat-drawer
+      #drawer="matDrawer"
+      [opened]="!mobileMode"
+      [mode]="mobileMode ? 'over' : 'side'"
+    >
+      <div class="menu">
+        <mat-accordion class="menu-list">
+          <mat-expansion-panel *ngFor="let imageFrame of imageFrames$ | async; trackBy: trackByImageFrame; let index = index">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <img class="menu-list-preview" [src]="imageFrame.image.safeUrl"/>
+              </mat-panel-title>
+
+              <mat-panel-description>
+                {{ imageFrame.name }}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <div>
+              <frame-form
+                [frame]="imageFrame"
+                (updated)="updateImageFrame(index, $event)"
+              ></frame-form>
+
+              <button
+                type="button"
+                class="remove-button"
+                mat-button
+                (click)="updateImageFrame(index, null)"
+              >
+                <mat-icon fontIcon="delete"></mat-icon>
+                Remove image frame
+              </button>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+
+        <div class="menu-add">
+          <button
+            type="button"
+            mat-button
+            color="primary"
+            (click)="fileInput.click()"
+          >
+            <mat-icon fontIcon="add"></mat-icon>
+            Add photographs
+          </button>
+
+          <input
+            #fileInput
+            multiple
+            type="file"
+            accept="image/png, image/jpeg"
+            (change)="onFilesChanged(fileInput.files)"
+          >
+        </div>
+      </div>
+    </mat-drawer>
+
+    <mat-drawer-content>
+      <div #viewport class="viewport">
+        <image-frame
+          *ngFor="let imageFrame of imageFrames$ | async; trackBy: trackByImageFrame; let index = index"
+          [imageFrame]="imageFrame"
+          (loadProgress)="updateLoadProgress(imageFrame.id, $event)"
+        ></image-frame>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+
+  <button
+    *ngIf="mobileMode$ | async"
+    class="toggle-button"
+    mat-fab
+    color="primary"
+    (click)="drawer.toggle()"
+  >
+    <mat-icon fontIcon="photo"></mat-icon>
+  </button>
+</ng-container>

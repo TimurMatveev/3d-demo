@@ -1,0 +1,22 @@
+form {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0 1.5rem;
+}
+
+.heading {
+  padding: 1rem 0;
+  font-size: 1rem;
+}
+
+.field-2 {
+  grid-column: span 2;
+}
+
+.field-3 {
+  grid-column: span 3;
+}
+
+.field-6 {
+  grid-column: span 6;
+}

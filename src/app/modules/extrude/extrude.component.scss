@@ -1,0 +1,14 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+mat-toolbar {
+  justify-content: space-between;
+}
+
+.viewport {
+  flex: 1;
+}

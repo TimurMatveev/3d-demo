@@ -1,0 +1,162 @@
+<form [formGroup]="imageFrameForm">
+  <ng-container>
+    <div class="field-6 heading">
+      Size
+    </div>
+
+    <mat-form-field
+      *ngIf="imageFrameForm.controls.width as widthControl"
+      class="field-3"
+    >
+      <mat-label>Width</mat-label>
+      <input matInput type="number" [formControl]="widthControl">
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="imageFrameForm.controls.depth as depthControl"
+      class="field-3"
+    >
+      <mat-label>Depth</mat-label>
+      <input matInput type="number" [formControl]="depthControl">
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="imageFrameForm.controls.borderWidth as borderWidthControl"
+      class="field-3"
+    >
+      <mat-label>Border width</mat-label>
+      <input matInput type="number" [formControl]="borderWidthControl">
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="imageFrameForm.controls.frameWidth as frameWidthControl"
+      class="field-3"
+    >
+      <mat-label>Frame width</mat-label>
+      <input matInput type="number" [formControl]="frameWidthControl">
+    </mat-form-field>
+
+    <mat-divider class="field-6"></mat-divider>
+  </ng-container>
+
+  <ng-container *ngIf="imageFrameForm.controls.translate as translateGroup">
+    <div class="field-6 heading">
+      Position
+    </div>
+
+    <mat-form-field
+      *ngIf="translateGroup.controls.x as xControl"
+      class="field-2"
+    >
+      <mat-label>X</mat-label>
+      <input matInput type="number" [formControl]="xControl">
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="translateGroup.controls.y as yControl"
+      class="field-2"
+    >
+      <mat-label>Y</mat-label>
+      <input matInput type="number" [formControl]="yControl">
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="translateGroup.controls.z as zControl"
+      class="field-2"
+    >
+      <mat-label>Z</mat-label>
+      <input matInput type="number" [formControl]="zControl">
+    </mat-form-field>
+
+    <mat-divider class="field-6"></mat-divider>
+  </ng-container>
+
+  <ng-container *ngIf="imageFrameForm.controls.rotate as rotateGroup">
+    <div class="field-6 heading">
+      Rotation
+    </div>
+
+    <mat-form-field
+      *ngIf="rotateGroup.controls.x as xControl"
+      class="field-2"
+    >
+      <mat-label>X</mat-label>
+      <input matInput type="number" [formControl]="xControl">
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="rotateGroup.controls.y as yControl"
+      class="field-2"
+    >
+      <mat-label>Y</mat-label>
+      <input matInput type="number" [formControl]="yControl">
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="rotateGroup.controls.z as zControl"
+      class="field-2"
+    >
+      <mat-label>Z</mat-label>
+      <input matInput type="number" [formControl]="zControl">
+    </mat-form-field>
+
+    <mat-divider class="field-6"></mat-divider>
+  </ng-container>
+
+  <ng-container *ngIf="imageFrameForm.controls.scale as scaleGroup">
+    <div class="field-6 heading">
+      Scale
+    </div>
+
+    <mat-form-field
+      *ngIf="scaleGroup.controls.x as xControl"
+      class="field-2"
+    >
+      <mat-label>X</mat-label>
+      <input matInput type="number" [formControl]="xControl">
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="scaleGroup.controls.y as yControl"
+      class="field-2"
+    >
+      <mat-label>Y</mat-label>
+      <input matInput type="number" [formControl]="yControl">
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="scaleGroup.controls.z as zControl"
+      class="field-2"
+    >
+      <mat-label>Z</mat-label>
+      <input matInput type="number" [formControl]="zControl">
+    </mat-form-field>
+
+    <mat-divider class="field-6"></mat-divider>
+  </ng-container>
+
+  <ng-container *ngIf="imageFrameForm.controls.color as colorGroup">
+    <div class="field-6 heading">
+      Colors
+    </div>
+
+    <mat-form-field
+      *ngIf="colorGroup.controls.frame as frameControl"
+      class="field-3"
+      (focusin)="colorInput.click()"
+    >
+      <mat-label>Frame</mat-label>
+      <div class="color-picker">
+        <input #colorInput matInput type="color" [formControl]="frameControl">
+      </div>
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="colorGroup.controls.border as borderControl"
+      class="field-3"
+    >
+      <mat-label>Border</mat-label>
+      <input matInput type="color" [formControl]="borderControl">
+    </mat-form-field>
+  </ng-container>
+</form>
