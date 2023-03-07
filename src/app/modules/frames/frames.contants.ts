@@ -238,8 +238,8 @@ export const NATURE_FRAMES: ImageFrame[] = [
     borderWidth: 1,
     frameWidth: 1,
     image: {
-      url: './assets/popsa.jpg',
-      safeUrl: './assets/popsa.jpg',
+      url: '/3d-demo/dist/3d-extrude/assets/popsa.jpg',
+      safeUrl: '/3d-demo/dist/3d-extrude/assets/popsa.jpg',
       width: 1280,
       height: 720,
     },
