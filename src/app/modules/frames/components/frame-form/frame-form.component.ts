@@ -67,10 +67,10 @@ export class FrameFormComponent implements OnInit {
 
     this.imageFrameForm.valueChanges
       .pipe(
-        throttleTime(100, asyncScheduler, { trailing: true }),
+        throttleTime(50, asyncScheduler, { trailing: true }),
         untilDestroyed(this),
       )
-      .subscribe((value) => this.updated.emit({
+      .subscribe(() => this.updated.emit({
         ...this.frame,
         ...this.imageFrameForm.getRawValue(),
       }));

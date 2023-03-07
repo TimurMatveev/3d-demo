@@ -43,6 +43,7 @@ export class FrameThree {
   }
 
   public destroy(): void {
+    this.threeSceneService.layer1.remove(this.group);
     this.group.remove();
   }
 
@@ -77,7 +78,7 @@ export class FrameThree {
     this.group.position.z = next.translate.z;
     this.group.rotation.x = next.rotate.x;
     this.group.rotation.y = next.rotate.y;
-    this.group.rotation.y = next.rotate.z;
+    this.group.rotation.z = next.rotate.z;
     this.group.scale.x = next.scale.x;
     this.group.scale.y = next.scale.y;
     this.group.scale.z = next.scale.z;
@@ -91,11 +92,6 @@ export class FrameThree {
     const frameDelta = 2 * next.frameWidth;
 
     this.frame.geometry.dispose();
-    // this.frame.geometry = new BoxGeometry(
-    //   width + borderDelta + frameDelta,
-    //   height + borderDelta + frameDelta,
-    //   next.depth,
-    // );
     this.frame.geometry = createImageFrameGeometry(
       width + borderDelta + frameDelta,
       height + borderDelta + frameDelta,
@@ -110,7 +106,6 @@ export class FrameThree {
       next.depth,
       next.borderWidth,
     );
-    // this.border.position.z = next.depth / 2 + MICRO_DISPLACEMENT;
 
     this.image.geometry.dispose();
     this.image.geometry = new PlaneGeometry(
