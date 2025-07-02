@@ -33,6 +33,7 @@ export class ExtrudeThreeService {
   public get showAxes(): boolean {
     return this.scene.children.includes(this.axesHelper);
   }
+
   public set showAxes(shown: boolean) {
     if (shown) {
       this.scene.add(this.axesHelper);

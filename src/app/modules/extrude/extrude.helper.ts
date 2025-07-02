@@ -16,10 +16,6 @@ export function vectorToString(vector: Vector): string {
   return vector.join(',');
 }
 
-export function vectorsToString(vectors: Vector[]): string {
-  return vectors.map(vectorToString).join('|');
-}
-
 export function vectorScalar([x, y, z]: Vector, scalar: number): Vector {
   return [x * scalar, y * scalar, z * scalar];
 }

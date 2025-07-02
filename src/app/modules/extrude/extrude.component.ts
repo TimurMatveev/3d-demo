@@ -77,10 +77,6 @@ export class ExtrudeComponent implements OnInit, OnDestroy {
   ) {
   }
 
-  get boundBox(): DOMRect {
-    return this.elementRef.nativeElement.getBoundingClientRect();
-  }
-
   ngOnInit(): void {
     this.threeService.init(this.elementRef.nativeElement);
 

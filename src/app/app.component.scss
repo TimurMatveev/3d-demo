@@ -1,0 +1,13 @@
+.routes {
+  position: absolute;
+  width: 100%;
+  bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+  pointer-events: none;
+
+  & > mat-button-toggle-group {
+    pointer-events: all;
+  }
+}

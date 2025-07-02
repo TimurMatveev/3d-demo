@@ -1,2 +1,9 @@
-<!--<extrude-scene></extrude-scene>-->
-<frames-scene></frames-scene>
+<div class="routes">
+  <mat-button-toggle-group [(ngModel)]="view">
+    <mat-button-toggle value="frames">Frames</mat-button-toggle>
+    <mat-button-toggle value="extrude">Extrude</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+
+<frames-scene *ngIf="view === 'frames'"></frames-scene>
+<extrude-scene *ngIf="view === 'extrude'"></extrude-scene>

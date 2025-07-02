@@ -232,37 +232,4 @@ export const NATURE_FRAMES: ImageFrame[] = [
       border: '#2a2a2a'
     },
   },
-  {
-    id: 8,
-    name: 'Popsa',
-    borderWidth: 1,
-    frameWidth: 1,
-    image: {
-      url: '/3d-demo/dist/3d-extrude/assets/popsa.jpg',
-      safeUrl: '/3d-demo/dist/3d-extrude/assets/popsa.jpg',
-      width: 1280,
-      height: 720,
-    },
-    width: 20,
-    depth: 1,
-    translate: {
-      x: 0,
-      y: 0,
-      z: 0,
-    },
-    rotate: {
-      x: 0,
-      y: 0,
-      z: 0,
-    },
-    scale: {
-      x: 1,
-      y: 1,
-      z: 1,
-    },
-    color: {
-      frame: '#e7e7e7',
-      border: '#2a2a2a'
-    },
-  },
 ];
