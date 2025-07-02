@@ -34,7 +34,7 @@
               "src/styles.scss"
             ],
             "scripts": [],
-            "baseHref": "3d-demo/dist/3d-extrude/"
+            "baseHref": "/"
           },
           "configurations": {
             "production": {
