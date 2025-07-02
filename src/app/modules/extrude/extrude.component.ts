@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, isDevMode, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import {
   BehaviorSubject,
   combineLatest,
@@ -60,7 +60,7 @@ export class ExtrudeComponent implements OnInit, OnDestroy {
       this.threeService.layer1.clear();
       this.threeService.layer2.clear();
     }),
-    switchMap((model: ModelSource) => this.threeService.loadGeometry(model.path)),
+    switchMap((model: ModelSource) => this.threeService.loadGeometry(isDevMode() ? model.path : `dist/${model.path}`)),
     shareReplay(1),
   );
 
