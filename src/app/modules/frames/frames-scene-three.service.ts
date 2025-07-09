@@ -19,7 +19,7 @@ import { ProgressModel } from "../../shared/progress.model";
 export class FramesSceneThreeService {
   public readonly scene = new Scene();
   public readonly camera = new PerspectiveCamera( 75, 1, 0.01, 100000 );
-  public readonly renderer = new WebGLRenderer();
+  public readonly renderer = new WebGLRenderer({ antialias: true });
 
   public readonly layer1: Group = new Group();
   public readonly layer2: Group = new Group();
